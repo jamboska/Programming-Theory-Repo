@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    public int index = 0;
-
+    // ENCAPSULATION
+    [SerializeField] int index;
     private GameManager gameManager;
+
+    public int Index { get => index; }
 
     private void Start()
     {

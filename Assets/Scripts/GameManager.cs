@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         gameIsOver = false;
     }
 
+    // ABSTRACTION
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < 9; j++)
             {
-                if (cells[j].GetComponent<Cell>().index == i + 1)
+                if (cells[j].GetComponent<Cell>().Index == i + 1)
                 {
                     sortedCells[i] = cells[j];
                 }
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
         if (!gameIsOver && isPlayerMove)
         {
             // если €чейка пуста€
-            if (objects[cell.index - 1] == null)
+            if (objects[cell.Index - 1] == null)
             {
                 createCrossOnCell(cell);
                 isPlayerMove = false;
@@ -166,7 +167,7 @@ public class GameManager : MonoBehaviour
     private void createCrossOnCell(Cell cell)
     {
         GameObject cross = Instantiate(crossPrefab, cell.transform.position, crossPrefab.transform.rotation);
-        objects[cell.index - 1] = cross;
+        objects[cell.Index - 1] = cross;
     }
 
     private void CreateRandomZero()
